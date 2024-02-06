@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 #writes a Bash script that transfers a file from our client to a server
 
 args_no=$#
