@@ -7,11 +7,11 @@ if ! [ -x "$(command -v nginx)" ]; then
   apt-get install -y nginx
 fi
 
-echo "Ceci n'est pas une page" >> /var/www/html/custom404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom404.html
 
 # Check configuration exists in Nginx server configuration
 if ! grep -q "error_page 404 /custom404.html;" /etc/nginx/sites-available/default; then
-  sed -i '/server_name _;/a \
+  sudo sed -i '/server_name _;/a \
           error_page 404 /custom404.html;\n \
           location = /custom404.html {\n \
               root /var/www/html;\n \
