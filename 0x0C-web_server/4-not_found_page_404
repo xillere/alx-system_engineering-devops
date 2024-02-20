@@ -9,11 +9,11 @@ fi
 
 echo "Ceci n'est pas une page" >> /var/www/html/custom404.html
 
-# Check if custom configuration already exists in Nginx server configuration
-if ! grep -q "error_page 404 /404.html;" /etc/nginx/sites-available/default; then
+# Check configuration exists in Nginx server configuration
+if ! grep -q "error_page 404 /custom404.html;" /etc/nginx/sites-available/default; then
   sed -i '/server_name _;/a \
-          error_page 404 /404.html;\n \
-          location = /404.html {\n \
+          error_page 404 /custom404.html;\n \
+          location = /custom404.html {\n \
               root /var/www/html;\n \
           }\n' /etc/nginx/sites-available/default
   service nginx restart
