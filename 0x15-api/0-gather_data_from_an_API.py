@@ -15,6 +15,6 @@ if __name__ == "__main__":
     tasks_complete = [tc.get(
         "title") for tc in todolist if tc.get("completed") is True]
     print("Employee {} is done with tasks({}/{}):".format(
-        user.json().get("name"), len(tasks_complete), len(todolist)))
+        users.get("name"), len(tasks_complete), len(todolist)))
     for i in tasks_complete:
-        print("  {}".format(i))
+        print("\t {}".format(i))
